@@ -1,0 +1,7 @@
+parameters:
+  #eveapi.keyID: <your keyID>;
+  #eveapi.vCode: <your vCode>
+
+  eveapi.market_types:
+    - 34
+    - 35

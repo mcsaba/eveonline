@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Region - {{ regionName }}
+{% endblock %}
+
+{% block body %}
+    <table border="1" width="100%">
+    {% for document in documents %}
+        <tr>
+            <td>{{ document['region'] }}</td>
+            <td>{{ document['constellation'] }}</td>
+            <td>{{ document['solarsystem'] }}</td>
+            <td>{{ document['jumps'] }}</td>
+        </tr>
+    {% else %}
+        <tr><td colspan="4"><p>There are result for {{ regionName }}</p></td></tr>
+    {% endfor %}
+    </table>
+{% endblock %}

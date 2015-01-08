@@ -1,0 +1,26 @@
+services:
+  elasticsearch_client:
+    class: Elasticsearch\Client
+
+  elasticsearch_indexer:
+    class: Eveonline\EveonlineBundle\Services\ElasticsearchIndexerService
+    arguments: ["@elasticsearch_client"]
+
+  elasticsearch_searcher:
+    class: Eveonline\EveonlineBundle\Services\ElasticsearchSearcherService
+    arguments: ["@elasticsearch_client", "@elasticsearch_indexer"]
+
+  eveonline_api:
+    class: Eveonline\EveonlineBundle\Services\EveonlineApiService
+    arguments: ["%eveapi.keyID%", "%eveapi.vCode%"]
+
+  universe_data:
+      class: Eveonline\EveonlineBundle\Services\UniverseDataService
+      arguments: ["@kernel"]
+
+  jump_shipkills:
+    class: Eveonline\EveonlineBundle\Services\JumpsShipKillsService
+    arguments: ["@eveonline_api", "@universe_data"]
+
+  market:
+      class: Eveonline\EveonlineBundle\Services\MarketService

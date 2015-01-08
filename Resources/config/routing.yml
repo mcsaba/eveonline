@@ -1,0 +1,3 @@
+EveonlineEveonlineBundle_search_region:
+    pattern:  /search/region/{name}
+    defaults: { _controller: EveonlineEveonlineBundle:Search:region }
